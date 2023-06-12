@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+    @mixin font($font-family, $font-file) {
+        @font-face {
+            font-family: $font-family;
+            src: url($font-file + ".ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    }
+
+    @include font("Poppins-regular", "./assets/fonts/Poppins-Regular");
+    @include font("Poppins-bold", "./assets/fonts/Poppins-Bold");
+    @include font("Poppins-extra-bold-italic", "./assets/fonts/Poppins-ExtraBoldItalic");
+    @include font("Poppins-italic", "./assets/fonts/Poppins-Italic");
+
+    :root {
+        --purple: hsl(259, 100%, 65%);
+        --light-red: hsl(0, 100%, 67%);
+        --off-white: hsl(0, 0%, 94%);
+        --light-grey: hsl(0, 0%, 86%);
+        --smokey-grey: hsl(0, 1%, 44%);
+        --off-black: hsl(0, 0%, 8%);
+    }
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        display: none;
+        a {
+            color: hsl(228, 45%, 44%);
+        }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    body {
+        background-color: var(--off-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main-panel {
+        background-color: white;
+        width: 50vw;
+        border-radius: 15px;
+        border-bottom-right-radius: 200px;
+        padding: 40px 50px;
+        .date-picker {
+            color: var(--off-black);
+            display: flex;
+            gap: 30px;
+            .input-container {
+                input,
+                label {
+                    display: block;
+                }
+                label:first-of-type {
+                    color: var(--smokey-grey);
+                    font-family: Poppins-bold;
+                    letter-spacing: 3px;
+                    margin-left: 1px;
+                    padding: 5px 0;
+                }
+                label.error-message {
+                    display: none;
+                    color: var(--light-red);
+                    font-family: Poppins-italic;
+                    margin-left: 1px;
+                    padding: 5px 0;
+                }
+
+                input {
+                    width: 120px;
+                    font-size: 32px;
+                    font-family: Poppins-bold;
+                    padding: 10px 10px;
+                    padding-left: 20px;
+                    border: solid var(--light-grey) 2px;
+                    border-radius: 8px;
+                    &::placeholder {
+                        color: var(--smokey-grey);
+                    }
+                    &:focus {
+                        outline: none;
+                        border: solid var(--purple) 2px;
+                    }
+                }
+            }
+            &[data-error="true"] > div.input-container {
+                input {
+                    border: solid var(--light-red) 1px;
+                }
+                label {
+                    display: block;
+                    color: var(--light-red);
+                }
+            }
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                height: 2px;
+                width: 100%;
+                background-color: var(--light-grey);
+            }
+            button#calculate-age {
+                outline: none;
+                background: var(--purple) url("./assets/images/icon-arrow.svg") no-repeat center;
+                background-size: 50%;
+                border-radius: 50%;
+                border: none;
+                height: 100px;
+                aspect-ratio: 1;
+                &:hover {
+                    background-color: var(--off-black);
+                    cursor: pointer;
+                }
+                z-index: 1;
+            }
+        }
+        div.date-display {
+            user-select: none;
+            font-family: "Poppins-extra-bold-italic";
+            font-size: 96px;
+            color: var(--off-black);
+
+            div {
+                line-height: 106px;
+                span.date-value {
+                    color: var(--purple);
+                }
+            }
+        }
+    }
+}

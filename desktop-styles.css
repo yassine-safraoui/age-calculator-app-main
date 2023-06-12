@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+  @font-face {
+    font-family: "Poppins-regular";
+    src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Poppins-bold";
+    src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Poppins-extra-bold-italic";
+    src: url("./assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Poppins-italic";
+    src: url("./assets/fonts/Poppins-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  :root {
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+  }
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    display: none;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  body {
+    background-color: var(--off-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .main-panel {
+    background-color: white;
+    width: 50vw;
+    border-radius: 15px;
+    border-bottom-right-radius: 200px;
+    padding: 40px 50px;
+  }
+  .main-panel .date-picker {
+    color: var(--off-black);
+    display: flex;
+    gap: 30px;
+  }
+  .main-panel .date-picker .input-container input,
+  .main-panel .date-picker .input-container label {
+    display: block;
+  }
+  .main-panel .date-picker .input-container label:first-of-type {
+    color: var(--smokey-grey);
+    font-family: Poppins-bold;
+    letter-spacing: 3px;
+    margin-left: 1px;
+    padding: 5px 0;
+  }
+  .main-panel .date-picker .input-container label.error-message {
+    display: none;
+    color: var(--light-red);
+    font-family: Poppins-italic;
+    margin-left: 1px;
+    padding: 5px 0;
+  }
+  .main-panel .date-picker .input-container input {
+    width: 120px;
+    font-size: 32px;
+    font-family: Poppins-bold;
+    padding: 10px 10px;
+    padding-left: 20px;
+    border: solid var(--light-grey) 2px;
+    border-radius: 8px;
+  }
+  .main-panel .date-picker .input-container input::-moz-placeholder {
+    color: var(--smokey-grey);
+  }
+  .main-panel .date-picker .input-container input::placeholder {
+    color: var(--smokey-grey);
+  }
+  .main-panel .date-picker .input-container input:focus {
+    outline: none;
+    border: solid var(--purple) 2px;
+  }
+  .main-panel .date-picker[data-error=true] > div.input-container input {
+    border: solid var(--light-red) 1px;
+  }
+  .main-panel .date-picker[data-error=true] > div.input-container label {
+    display: block;
+    color: var(--light-red);
+  }
+  .main-panel .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+  }
+  .main-panel .button-container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 100%;
+    background-color: var(--light-grey);
+  }
+  .main-panel .button-container button#calculate-age {
+    outline: none;
+    background: var(--purple) url("./assets/images/icon-arrow.svg") no-repeat center;
+    background-size: 50%;
+    border-radius: 50%;
+    border: none;
+    height: 100px;
+    aspect-ratio: 1;
+    z-index: 1;
+  }
+  .main-panel .button-container button#calculate-age:hover {
+    background-color: var(--off-black);
+    cursor: pointer;
+  }
+  .main-panel div.date-display {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    font-family: "Poppins-extra-bold-italic";
+    font-size: 96px;
+    color: var(--off-black);
+  }
+  .main-panel div.date-display div {
+    line-height: 106px;
+  }
+  .main-panel div.date-display div span.date-value {
+    color: var(--purple);
+  }
+}/*# sourceMappingURL=desktop-styles.css.map */
